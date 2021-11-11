@@ -1,0 +1,31 @@
+{
+    "name": "algorithm-in",
+    "version": "1.0.0",
+    "description": "Algorithm in JavaScript (Typescript), Node.JS (NestJS, ExpressJS)",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "prettier": "prettier --write '**/*.js' '**/*.ts' '**/*.json'",
+        "build": "rimraf ./build && tsc",
+        "start": "npm run build && node build/index.js",
+        "start:dev": "nodemon"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nodejsdeveloperskh/algorithm-in-js.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/nodejsdeveloperskh/algorithm-in-js/issues"
+    },
+    "homepage": "https://github.com/nodejsdeveloperskh/algorithm-in-js#readme",
+    "devDependencies": {
+        "@types/node": "^16.11.7",
+        "nodemon": "^2.0.15",
+        "rimraf": "^3.0.2",
+        "ts-node": "^10.4.0",
+        "typescript": "^4.4.4"
+    }
+}

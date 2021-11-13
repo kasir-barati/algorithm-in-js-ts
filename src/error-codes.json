@@ -2,5 +2,13 @@
     "passed_parameter_should_be_number": {
         "message": "passed parameter should be number",
         "code": 1
+    },
+    "wrong_length": {
+        "message": "length pf the two array are not equal",
+        "code": 2
+    },
+    "not_sorted_array": {
+        "message": "array is not sorted",
+        "code": 3
     }
 }

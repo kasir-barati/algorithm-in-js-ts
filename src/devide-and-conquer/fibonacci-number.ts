@@ -12,7 +12,7 @@
  * Pros: It's solution is Easy to understand
  */
 
-import * as ErrorCodes from './error-codes.json';
+import * as ErrorCodes from '../error-codes.json';
 
 export function getTheFibonacciNumber(n: number): number {
     let result: number | null = null;

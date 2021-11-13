@@ -4,6 +4,12 @@
  * you found the smallest number, Then switch it with the index zero. Now we will start the same
  * process but this time start comparing from index 1 and the same story repeats & repeats until
  * we reach the latest index of array
+ * Worst-case performance: O(n^2)
+ *   n + (n -1) + (n - 2) + ... + 1
+ *   n(n + 1)/2
+ *   (n^2 + n)/2
+ *   n^2/2 + n/2
+ * Best-case performance: Ω(n^2)
  */
 
 import * as ErrorCodes from '../error-codes.json';

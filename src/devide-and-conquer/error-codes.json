@@ -1,0 +1,6 @@
+{
+    "passed_parameter_should_be_number": {
+        "message": "passed parameter should be number",
+        "code": 1
+    }
+}

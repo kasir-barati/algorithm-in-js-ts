@@ -1,6 +1,7 @@
 /**
- * Worse-case performance:
- * Best-case performance:
+ * Worse-case performance: O(n log n)
+ * Best-case performance: Ω(n log n)
+ * Average-case performance: Ө(n log n)
  */
 
 export function mergeSort(arrayOfNumbers: number[]): number[] {

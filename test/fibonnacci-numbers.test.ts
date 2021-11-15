@@ -1,4 +1,4 @@
-import { getTheFibonacciNumber } from '../src/devide-and-conquer/fibonacci-number';
+import { getTheFibonacciNumber } from '../src/divide-and-conquer/fibonacci-number';
 
 test('fibonacci-6-is-8', () => {
     expect(getTheFibonacciNumber(6)).toBe(8);

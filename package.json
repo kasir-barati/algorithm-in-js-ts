@@ -12,15 +12,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/nodejsdeveloperskh/algorithm-in-js.git"
+        "url": "git+https://github.com/kasir-barati/algorithm-in-js.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/nodejsdeveloperskh/algorithm-in-js/issues"
+        "url": "https://github.com/kasir-barati/algorithm-in-js/issues"
     },
-    "homepage": "https://github.com/nodejsdeveloperskh/algorithm-in-js#readme",
+    "homepage": "https://github.com/kasir-barati/algorithm-in-js#readme",
     "devDependencies": {
         "@babel/core": "^7.16.0",
         "@babel/preset-env": "^7.16.0",

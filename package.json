@@ -8,7 +8,7 @@
         "prettier": "prettier --write '**/*.js' '**/*.ts' '**/*.json'",
         "build": "rimraf ./dist && tsc",
         "start": "npm run build && node build/index.js",
-        "start:dev": "nodemon"
+        "start:dev": "pnpx ts-node src/structures/linked-list/index.ts"
     },
     "repository": {
         "type": "git",
@@ -22,17 +22,16 @@
     },
     "homepage": "https://github.com/kasir-barati/algorithm-in-js#readme",
     "devDependencies": {
-        "@babel/core": "^7.16.0",
-        "@babel/preset-env": "^7.16.0",
-        "@babel/preset-typescript": "^7.16.0",
         "@types/jest": "^27.0.2",
         "@types/node": "^16.11.7",
-        "babel-jest": "^27.3.1",
         "jest": "^27.3.1",
         "nodemon": "^2.0.15",
         "rimraf": "^3.0.2",
         "ts-jest": "^27.0.7",
         "ts-node": "^10.4.0",
         "typescript": "^4.4.4"
+    },
+    "dependencies": {
+        "denuto": "^0.1.2"
     }
 }

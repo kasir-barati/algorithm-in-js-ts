@@ -19,27 +19,25 @@
 import * as ErrorCodes from '../error-codes.json';
 
 export function getTheFibonacciNumber(n: number): number {
-    let result: number | null = null;
+  let result: number | null = null;
 
-    if (typeof n !== 'number') {
-        throw new Error(
-            ErrorCodes.passed_parameter_should_be_number.message,
-        );
-    }
-
-    switch (n) {
-        case 0:
-            result = 0;
-            break;
-        case 1:
-            result = 1;
-            break;
-    }
-
-    if (result !== null) {
-        return result;
-    }
-    return (
-        getTheFibonacciNumber(n - 1) + getTheFibonacciNumber(n - 2)
+  if (typeof n !== 'number') {
+    throw new Error(
+      ErrorCodes.passed_parameter_should_be_number.message,
     );
+  }
+
+  switch (n) {
+    case 0:
+      result = 0;
+      break;
+    case 1:
+      result = 1;
+      break;
+  }
+
+  if (result !== null) {
+    return result;
+  }
+  return getTheFibonacciNumber(n - 1) + getTheFibonacciNumber(n - 2);
 }

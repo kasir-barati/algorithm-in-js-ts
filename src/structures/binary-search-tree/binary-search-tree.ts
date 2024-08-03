@@ -1,84 +1,84 @@
 import { TreeNode } from './tree-node';
 
 export class BinarySearchTree<T extends string | number> {
-    // Parameter Properties
-    constructor(public head: TreeNode<T> | null = null) {}
+  // Parameter Properties
+  constructor(public head: TreeNode<T> | null = null) {}
 
-    // Make it easier to insert data into out BST
-    insert(
-        node: TreeNode<T> | null = this.head,
-        value: T,
-    ): TreeNode<T> {
-        if (!node) {
-            const root = new TreeNode<T>(value);
-            return root;
-        }
-
-        if (value < node.data) {
-            node.left = this.insert(node.left, value);
-        } else if (value > node.data) {
-            node.right = this.insert(node.right, value);
-        }
-        return node;
+  // Make it easier to insert data into out BST
+  insert(
+    node: TreeNode<T> | null = this.head,
+    value: T,
+  ): TreeNode<T> {
+    if (!node) {
+      const root = new TreeNode<T>(value);
+      return root;
     }
 
-    search(
-        node: Readonly<TreeNode<T>> | null | null = this.head,
-        value: T,
-    ): TreeNode<T> | null {
-        if (!node) {
-            return null;
-        }
+    if (value < node.data) {
+      node.left = this.insert(node.left, value);
+    } else if (value > node.data) {
+      node.right = this.insert(node.right, value);
+    }
+    return node;
+  }
 
-        if (node.data === value) {
-            return node;
-        }
-
-        if (value < node.data) {
-            return this.search(node.left, value);
-        }
-
-        return this.search(node.right, value);
+  search(
+    node: Readonly<TreeNode<T>> | null | null = this.head,
+    value: T,
+  ): TreeNode<T> | null {
+    if (!node) {
+      return null;
     }
 
-    /**
-     * @description Prints out a sorted version of the tree.
-     */
-    inOrderTraversal(
-        root: Readonly<TreeNode<T>> | null = this.head,
-    ): void {
-        if (root) {
-            this.inOrderTraversal(root.left);
-            console.log(root.data);
-            this.inOrderTraversal(root.right);
-        }
+    if (node.data === value) {
+      return node;
     }
 
-    /**
-     * @description Prints out the root first and then the rest of the nodes in ascending order.
-     */
-    preOrderTraversal(
-        root: Readonly<TreeNode<T>> | null = this.head,
-    ): void {
-        if (root) {
-            console.log(root.data);
-            this.inOrderTraversal(root.left);
-            this.inOrderTraversal(root.right);
-        }
+    if (value < node.data) {
+      return this.search(node.left, value);
     }
 
-    /**
-     * @description Prints out the root at the end, and the rest of the nodes in ascending order.
-     */
-    postOrderTraversal(
-        root: Readonly<TreeNode<T>> | null = this.head,
-    ): void {
-        if (root) {
-            this.inOrderTraversal(root.left);
-            this.inOrderTraversal(root.right);
-            console.log(root.data);
-        }
+    return this.search(node.right, value);
+  }
+
+  /**
+   * @description Prints out a sorted version of the tree.
+   */
+  inOrderTraversal(
+    root: Readonly<TreeNode<T>> | null = this.head,
+  ): void {
+    if (root) {
+      this.inOrderTraversal(root.left);
+      console.log(root.data);
+      this.inOrderTraversal(root.right);
     }
+  }
+
+  /**
+   * @description Prints out the root first and then the rest of the nodes in ascending order.
+   */
+  preOrderTraversal(
+    root: Readonly<TreeNode<T>> | null = this.head,
+  ): void {
+    if (root) {
+      console.log(root.data);
+      this.inOrderTraversal(root.left);
+      this.inOrderTraversal(root.right);
+    }
+  }
+
+  /**
+   * @description Prints out the root at the end, and the rest of the nodes in ascending order.
+   */
+  postOrderTraversal(
+    root: Readonly<TreeNode<T>> | null = this.head,
+  ): void {
+    if (root) {
+      this.inOrderTraversal(root.left);
+      this.inOrderTraversal(root.right);
+      console.log(root.data);
+    }
+  }
 }
 
 console.clear();

@@ -8,24 +8,24 @@
 import * as ErrorCodes from '../error-codes.json';
 
 export function linearSearch(
-    numbers: number[],
-    searchNumber: number,
+  numbers: number[],
+  searchNumber: number,
 ): boolean {
-    if (typeof searchNumber !== 'number') {
-        throw new Error(
-            ErrorCodes.passed_parameter_should_be_number.message,
-        );
-    }
+  if (typeof searchNumber !== 'number') {
+    throw new Error(
+      ErrorCodes.passed_parameter_should_be_number.message,
+    );
+  }
 
-    for (let tempNumber of numbers) {
-        if (typeof tempNumber !== 'number') {
-            throw new Error(
-                ErrorCodes.passed_parameter_should_be_number.message,
-            );
-        }
-        if (searchNumber === tempNumber) {
-            return true;
-        }
+  for (let tempNumber of numbers) {
+    if (typeof tempNumber !== 'number') {
+      throw new Error(
+        ErrorCodes.passed_parameter_should_be_number.message,
+      );
     }
-    return false;
+    if (searchNumber === tempNumber) {
+      return true;
+    }
+  }
+  return false;
 }

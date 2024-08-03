@@ -2,155 +2,155 @@
 import { contract, invariant, requires, ensures } from 'denuto';
 
 class LinkedListNode {
-    constructor(private _value: number) {}
+  constructor(private _value: number) {}
 
-    public get value(): number {
-        return this._value;
-    }
-    public set value(value: number) {
-        this._value = value;
-        this.next = null;
-    }
+  public get value(): number {
+    return this._value;
+  }
+  public set value(value: number) {
+    this._value = value;
+    this.next = null;
+  }
 
-    private _next: LinkedListNode | null = null;
-    public get next(): LinkedListNode | null {
-        return this._next;
-    }
-    public set next(value: LinkedListNode | null) {
-        this._next = value;
-    }
+  private _next: LinkedListNode | null = null;
+  public get next(): LinkedListNode | null {
+    return this._next;
+  }
+  public set next(value: LinkedListNode | null) {
+    this._next = value;
+  }
 }
 
 class LinkedList {
-    private _head: LinkedListNode | null = null;
-    public get head(): LinkedListNode | null {
-        return this._head;
-    }
-    public set head(value: LinkedListNode | null) {
-        this._head = value;
-    }
+  private _head: LinkedListNode | null = null;
+  public get head(): LinkedListNode | null {
+    return this._head;
+  }
+  public set head(value: LinkedListNode | null) {
+    this._head = value;
+  }
 
-    // @requires((self: LinkedList, [value]: [number]) => {
-    //     return Number.isFinite(value);
-    // })
-    // @ensures(
-    //     (
-    //         currentSelf: LinkedList,
-    //         oldSelf: LinkedList,
-    //         [newValue]: [number],
-    //         [oldNewValue]: [number],
-    //     ) => {
-    //         return (
-    //             currentSelf.tail?.value === newValue &&
-    //             currentSelf.tail.next === null
-    //         );
-    //     },
-    // )
-    push(value: number) {
-        const newNode = new LinkedListNode(value);
+  // @requires((self: LinkedList, [value]: [number]) => {
+  //     return Number.isFinite(value);
+  // })
+  // @ensures(
+  //     (
+  //         currentSelf: LinkedList,
+  //         oldSelf: LinkedList,
+  //         [newValue]: [number],
+  //         [oldNewValue]: [number],
+  //     ) => {
+  //         return (
+  //             currentSelf.tail?.value === newValue &&
+  //             currentSelf.tail.next === null
+  //         );
+  //     },
+  // )
+  push(value: number) {
+    const newNode = new LinkedListNode(value);
 
-        if (!this.head) {
-            this.head = newNode;
-            return;
-        }
-
-        for (
-            let currentNode = this.head;
-            currentNode !== null;
-            currentNode = currentNode.next
-        ) {
-            if (currentNode.next === null) {
-                currentNode.next = newNode;
-                break;
-            }
-        }
+    if (!this.head) {
+      this.head = newNode;
+      return;
     }
 
-    unshift(value: number) {
-        if (!this.head) {
-            this.push(value);
-            return;
-        }
+    for (
+      let currentNode = this.head;
+      currentNode !== null;
+      currentNode = currentNode.next
+    ) {
+      if (currentNode.next === null) {
+        currentNode.next = newNode;
+        break;
+      }
+    }
+  }
 
-        const newNode = new LinkedListNode(value);
-
-        newNode.next = this.head;
-        this.head = newNode;
+  unshift(value: number) {
+    if (!this.head) {
+      this.push(value);
+      return;
     }
 
-    includes(value: number) {
-        if (!this.head) {
-            return false;
-        }
+    const newNode = new LinkedListNode(value);
 
-        for (
-            let currentNode = this.head;
-            currentNode !== null;
-            // @ts-ignore
-            currentNode = currentNode.next
-        ) {
-            if (currentNode.value === value) {
-                return true;
-            }
-        }
+    newNode.next = this.head;
+    this.head = newNode;
+  }
 
-        return false;
+  includes(value: number) {
+    if (!this.head) {
+      return false;
     }
 
-    remove(value: number): boolean {
-        if (!this.head) {
-            return false;
-        }
-
-        if (this.head.value === value) {
-            this.head = !this.head.next ? null : this.head.next;
-
-            return true;
-        }
-
-        let previousNode: LinkedListNode | null;
-
-        for (
-            let currentNode = this.head;
-            currentNode !== null;
-            // @ts-ignore
-            currentNode = currentNode.next
-        ) {
-            if (currentNode.value === value) {
-                previousNode!.next = currentNode.next;
-                return true;
-            }
-
-            previousNode = currentNode;
-        }
-
-        return false;
+    for (
+      let currentNode = this.head;
+      currentNode !== null;
+      // @ts-ignore
+      currentNode = currentNode.next
+    ) {
+      if (currentNode.value === value) {
+        return true;
+      }
     }
 
-    *traverse() {
-        for (
-            let currentNode = this.head;
-            currentNode !== null;
-            currentNode = currentNode.next
-        ) {
-            yield currentNode.value;
-        }
+    return false;
+  }
+
+  remove(value: number): boolean {
+    if (!this.head) {
+      return false;
     }
 
-    *traverseReverse() {
-        const result = [];
-        for (
-            let currentNode = this.head;
-            currentNode !== null;
-            currentNode = currentNode.next
-        ) {
-            result.unshift(currentNode.value);
-        }
+    if (this.head.value === value) {
+      this.head = !this.head.next ? null : this.head.next;
 
-        for (const item of result) {
-            yield item;
-        }
+      return true;
     }
+
+    let previousNode: LinkedListNode | null;
+
+    for (
+      let currentNode = this.head;
+      currentNode !== null;
+      // @ts-ignore
+      currentNode = currentNode.next
+    ) {
+      if (currentNode.value === value) {
+        previousNode!.next = currentNode.next;
+        return true;
+      }
+
+      previousNode = currentNode;
+    }
+
+    return false;
+  }
+
+  *traverse() {
+    for (
+      let currentNode = this.head;
+      currentNode !== null;
+      currentNode = currentNode.next
+    ) {
+      yield currentNode.value;
+    }
+  }
+
+  *traverseReverse() {
+    const result = [];
+    for (
+      let currentNode = this.head;
+      currentNode !== null;
+      currentNode = currentNode.next
+    ) {
+      result.unshift(currentNode.value);
+    }
+
+    for (const item of result) {
+      yield item;
+    }
+  }
 }
 
 const a = new LinkedList();
@@ -176,9 +176,9 @@ console.log('37 = ', a.includes(37));
 
 console.log('traverse');
 for (const value of a.traverse()) {
-    console.log(value);
+  console.log(value);
 }
 console.log('traverse reverse');
 for (const value of a.traverseReverse()) {
-    console.log(value);
+  console.log(value);
 }

@@ -1,36 +1,44 @@
 {
-    "name": "algorithm-in-js-ts",
-    "version": "1.0.0",
-    "description": "Algorithm in JavaScript (Typescript), Node.JS (NestJS, ExpressJS)",
-    "main": "src/index.js",
-    "scripts": {
-        "test": "jest",
-        "prettier": "prettier --write '**/*.js' '**/*.ts' '**/*.json'",
-        "build": "rimraf ./dist && tsc",
-        "start": "npm run build && node build/index.js",
-        "start:dev": "pnpx ts-node src/structures/linked-list/index.ts"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/kasir-barati/algorithm-in-js.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/kasir-barati/algorithm-in-js/issues"
-    },
-    "homepage": "https://github.com/kasir-barati/algorithm-in-js#readme",
-    "devDependencies": {
-        "@types/jest": "^29.5.12",
-        "@types/node": "^20.14.9",
-        "jest": "^29.7.0",
-        "rimraf": "^5.0.7",
-        "ts-jest": "^29.1.5",
-        "ts-node": "^10.9.2",
-        "typescript": "^5.5.3"
-    },
-    "dependencies": {
-        "denuto": "^0.1.2"
-    }
+  "name": "algorithm-in-js-ts",
+  "version": "1.0.0",
+  "description": "Algorithm/Design patterns in JavaScript (Typescript), Node.JS (NestJS, ExpressJS)",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "format": "prettier -w . -u",
+    "build": "rimraf ./dist && tsc",
+    "start": "npm run build && node build/index.js",
+    "start:dev": "pnpx ts-node src/structures/linked-list/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kasir-barati/algorithm-in-js.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "JavaScript",
+    "Typescript",
+    "algorithm",
+    "Design patterns",
+    "Design patterns"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kasir-barati/algorithm-in-js/issues"
+  },
+  "homepage": "https://github.com/kasir-barati/algorithm-in-js#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.14.9",
+    "jest": "^29.7.0",
+    "prettier": "^3.3.3",
+    "rimraf": "^5.0.7",
+    "ts-jest": "^29.1.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "denuto": "^0.1.2"
+  }
 }

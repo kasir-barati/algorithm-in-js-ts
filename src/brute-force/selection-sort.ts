@@ -15,30 +15,30 @@
 import * as ErrorCodes from '../error-codes.json';
 
 export function selectionSort(
-    arrayOfNumbers: number[],
+  arrayOfNumbers: number[],
 ): number[] | never {
-    const result = [...arrayOfNumbers];
-    let smallestNumberIndex: number;
+  const result = [...arrayOfNumbers];
+  let smallestNumberIndex: number;
 
-    for (let i = 0; i < result.length; i++) {
-        if (typeof result[i] !== 'number') {
-            throw new Error(
-                ErrorCodes.passed_parameter_should_be_number.message,
-            );
-        }
-        smallestNumberIndex = i;
+  for (let i = 0; i < result.length; i++) {
+    if (typeof result[i] !== 'number') {
+      throw new Error(
+        ErrorCodes.passed_parameter_should_be_number.message,
+      );
+    }
+    smallestNumberIndex = i;
 
-        for (let j = i + 1; j < result.length; j++) {
-            if (result[j] < result[smallestNumberIndex]) {
-                smallestNumberIndex = j;
-            }
-        }
-
-        [result[smallestNumberIndex], result[i]] = [
-            result[i],
-            result[smallestNumberIndex],
-        ];
+    for (let j = i + 1; j < result.length; j++) {
+      if (result[j] < result[smallestNumberIndex]) {
+        smallestNumberIndex = j;
+      }
     }
 
-    return result;
+    [result[smallestNumberIndex], result[i]] = [
+      result[i],
+      result[smallestNumberIndex],
+    ];
+  }
+
+  return result;
 }
